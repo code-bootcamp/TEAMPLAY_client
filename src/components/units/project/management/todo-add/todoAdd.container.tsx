@@ -9,18 +9,28 @@ import styled from "@emotion/styled";
 import { Dispatch, SetStateAction, useState } from "react";
 import { breakPoints } from "../../../../../commons/styles/breakpoint";
 import TagBox from "../../new/tagbox/TagBox";
-import { gql,useMutation } from "@apollo/client"
+import { gql, useMutation } from "@apollo/client";
 import { FETCH_PROJECT } from "../projectManage.queries";
-// import TeamProfile from "./teamProfile";
 
 const CREATE_TASK = gql`
-    mutation createTask($projectId:String!,$content:String!,$limit:DateTime!,$taskType:TASK_TYPE_ENUM!,$userIds:[String!]!){
-      createTask(projectId:$projectId,content:$content,limit:$limit,taskType:$taskType,userIds:$userIds){
-        id
-      }
+  mutation createTask(
+    $projectId: String!
+    $content: String!
+    $limit: DateTime!
+    $taskType: TASK_TYPE_ENUM!
+    $userIds: [String!]!
+  ) {
+    createTask(
+      projectId: $projectId
+      content: $content
+      limit: $limit
+      taskType: $taskType
+      userIds: $userIds
+    ) {
+      id
     }
-`
-
+  }
+`;
 
 const TodoAddStyle = styled.div`
   width: 100%;
@@ -28,7 +38,7 @@ const TodoAddStyle = styled.div`
   flex-direction: column;
   border-radius: 20px 20px 0 0;
   display: flex;
-  align-items: center; 
+  align-items: center;
   position: fixed;
   transition: 0.4s;
   bottom: 0;
@@ -44,12 +54,12 @@ const TodoAddStyle = styled.div`
   }
   z-index: 2;
   @media ${breakPoints.web} {
-      bottom:50%;
-      left:50%;
-      transform: translate(-50%,50%);
-      width: 30vw;
-      border-radius: 12px;
-      opacity: 1;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 30vw;
+    border-radius: 12px;
+    opacity: 1;
   }
 `;
 
@@ -57,9 +67,9 @@ const OffAdd = styled.button`
   width: 20px;
   cursor: pointer;
   position: absolute;
-  top:20px;
-  right:20px;
-  & > img{
+  top: 20px;
+  right: 20px;
+  & > img {
     width: 100%;
   }
 `;
@@ -75,28 +85,27 @@ const ModalBackground = styled.div`
   display: block;
 `;
 
-interface IPropsTodoAdd{
-  data:any
-  setTodoOn:Dispatch<SetStateAction<boolean>>
+interface IPropsTodoAdd {
+  data: any;
+  setTodoOn: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function TodoAdd(props:IPropsTodoAdd) {
+export default function TodoAdd(props: IPropsTodoAdd) {
   // const [warker,setWarker] = useState<string[]>([])
 
   const [content, setContent] = useState("");
   const [contentValid, setContentValid] = useState(false);
-  const [createTask] = useMutation(CREATE_TASK)
+  const [createTask] = useMutation(CREATE_TASK);
   const onClickoffAdd = () => {
-     props.setTodoOn(false)
+    props.setTodoOn(false);
   };
 
-  const [limit,setLimit] = useState("")
+  const [limit, setLimit] = useState("");
 
-  const [field,setField] = useState("")
-  const [fieldValid,setFieldValid] = useState(false)
- 
+  const [field, setField] = useState("");
+  const [fieldValid, setFieldValid] = useState(false);
+
   const onClickcreateTask = async () => {
-
     if (field === "") {
       setFieldValid(true);
     } else {
@@ -109,27 +118,27 @@ export default function TodoAdd(props:IPropsTodoAdd) {
       setContentValid(false);
     }
 
-    if(content && field){
-      try{
+    if (content && field) {
+      try {
         const result = await createTask({
-          variables:{
-            projectId:props?.data?.fetchProject?.id,
+          variables: {
+            projectId: props?.data?.fetchProject?.id,
             content,
-            limit:String(limit),
-            taskType:field,
-            userIds:""
+            limit: String(limit),
+            taskType: field,
+            userIds: "",
           },
-          refetchQueries:[FETCH_PROJECT]
-        })
-        alert("할 일이 등록되었습니다.")
-        onClickoffAdd()
-        console.log(result)
-      }catch(error){
-        console.log(error)
+          refetchQueries: [FETCH_PROJECT],
+        });
+        alert("할 일이 등록되었습니다.");
+        onClickoffAdd();
+        console.log(result);
+      } catch (error) {
+        console.log(error);
       }
     }
-  }
-  
+  };
+
   // const onMouseEnterprofileOn = (userId:string) => (e:MouseEvent<HTMLLIElement>) => {
   //   const user = document.getElementById(userId)
   //   user?.classList.add('onMouse')
@@ -144,11 +153,11 @@ export default function TodoAdd(props:IPropsTodoAdd) {
     <>
       <ModalBackground id="modalBackground"></ModalBackground>
       <TodoAddStyle id="onTodoAdd">
-      <OffAdd onClick={() => props.setTodoOn(false)}>
+        <OffAdd onClick={() => props.setTodoOn(false)}>
           <img
-              src="/img/down-arrow-black.svg"
-              className="Xmark"
-              alt="down-arrow"
+            src="/img/down-arrow-black.svg"
+            className="Xmark"
+            alt="down-arrow"
           />
         </OffAdd>
         <Wrapper paddingTop="5px">
@@ -161,16 +170,16 @@ export default function TodoAdd(props:IPropsTodoAdd) {
             valid={contentValid}
             errorMessage="프로젝트 이름을 한 글자 이상 입력해야 합니다."
           />
-          <DateInput 
-            label="마감 기한" 
-            setValues={setLimit} 
+          <DateInput
+            label="마감 기한"
+            setValues={setLimit}
             warringText="* 마감 기한을 선택하지 않으면 마감기간 없음으로 표시됩니다."
           />
-          <TagBox 
+          <TagBox
             list={[
-              {name:"기획",id:"PLANNING"},
-              {name:"디자인",id:"DESIGN"},
-              {name:"개발",id:"DEVELOPMENT"}
+              { name: "기획", id: "PLANNING" },
+              { name: "디자인", id: "DESIGN" },
+              { name: "개발", id: "DEVELOPMENT" },
             ]}
             label="분야"
             checkBox={false}

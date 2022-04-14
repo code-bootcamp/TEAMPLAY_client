@@ -107,7 +107,9 @@ export type IMutation = {
   createPointPayment: IPointPayment;
   createPosition: IPosition;
   createProject: IProject;
+  createQna: IQna;
   createRegion: IRegion;
+  createReview: IReview;
   createTask: ITask;
   createTendency: ITendency;
   createType: IType;
@@ -115,8 +117,11 @@ export type IMutation = {
   deleteAllProject: Scalars['Boolean'];
   deleteBoard: Scalars['Boolean'];
   deleteProject: Scalars['Boolean'];
+  deleteQna: Scalars['Boolean'];
+  deleteReview: Scalars['Boolean'];
   deleteTask: Scalars['Boolean'];
   deleteUser: Scalars['Boolean'];
+  deleteUserHard: Scalars['Boolean'];
   endProject: Scalars['Boolean'];
   joinChatRoom: IChatRoomMember;
   login: IToken;
@@ -127,6 +132,8 @@ export type IMutation = {
   sendTokenToEmail: Scalars['String'];
   startProject: IProject;
   updateBoard: IBoard;
+  updateQna: IQna;
+  updateReview: IReview;
   updateTask: ITask;
   updateUser: IUser;
   updateUserByOnboard: IUser;
@@ -183,8 +190,23 @@ export type IMutationCreateProjectArgs = {
 };
 
 
+export type IMutationCreateQnaArgs = {
+  content: Scalars['String'];
+  projectId: Scalars['String'];
+  qnaType: IQna_Type_Enum;
+  title: Scalars['String'];
+};
+
+
 export type IMutationCreateRegionArgs = {
   name: Scalars['String'];
+};
+
+
+export type IMutationCreateReviewArgs = {
+  content: Scalars['String'];
+  projectId: Scalars['String'];
+  title: Scalars['String'];
 };
 
 
@@ -222,8 +244,23 @@ export type IMutationDeleteProjectArgs = {
 };
 
 
+export type IMutationDeleteQnaArgs = {
+  qnaId: Scalars['String'];
+};
+
+
+export type IMutationDeleteReviewArgs = {
+  reviewId: Scalars['String'];
+};
+
+
 export type IMutationDeleteTaskArgs = {
   taskId: Scalars['String'];
+};
+
+
+export type IMutationDeleteUserHardArgs = {
+  email: Scalars['String'];
 };
 
 
@@ -269,6 +306,20 @@ export type IMutationStartProjectArgs = {
 export type IMutationUpdateBoardArgs = {
   boardId: Scalars['String'];
   content: Scalars['String'];
+  title: Scalars['String'];
+};
+
+
+export type IMutationUpdateQnaArgs = {
+  content: Scalars['String'];
+  qnaId: Scalars['String'];
+  title: Scalars['String'];
+};
+
+
+export type IMutationUpdateReviewArgs = {
+  content: Scalars['String'];
+  reviewId: Scalars['String'];
   title: Scalars['String'];
 };
 
@@ -327,7 +378,7 @@ export type IPosition = {
 
 export type IProject = {
   __typename?: 'Project';
-  board?: Maybe<Array<IBoard>>;
+  boards?: Maybe<Array<IBoard>>;
   createdAt: Scalars['DateTime'];
   deletedAt: Scalars['DateTime'];
   description: Scalars['String'];
@@ -344,9 +395,11 @@ export type IProject = {
   point: Scalars['Int'];
   projectMembers?: Maybe<Array<IProjectMember>>;
   projectToPositions: Array<IProjectToPosition>;
+  qnas?: Maybe<Array<IQna>>;
   recruitDate: Scalars['DateTime'];
+  reviews?: Maybe<Array<IReview>>;
   skill: Scalars['String'];
-  task?: Maybe<Array<ITask>>;
+  tasks?: Maybe<Array<ITask>>;
   teamname: Scalars['String'];
   type: IType;
   updatedAt: Scalars['DateTime'];
@@ -355,7 +408,7 @@ export type IProject = {
 export type IProjectMember = {
   __typename?: 'ProjectMember';
   id: Scalars['String'];
-  project: IUser;
+  project: IProject;
   user: IUser;
 };
 
@@ -365,6 +418,24 @@ export type IProjectToPosition = {
   number: Scalars['Int'];
   position: IPosition;
   project: IProject;
+};
+
+export enum IQna_Type_Enum {
+  Answer = 'ANSWER',
+  Question = 'QUESTION'
+}
+
+export type IQna = {
+  __typename?: 'Qna';
+  content: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  deletedAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  project: IProject;
+  qnaType: IQna_Type_Enum;
+  title: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+  user: IUser;
 };
 
 export type IQuery = {
@@ -380,7 +451,11 @@ export type IQuery = {
   fetchProject: IProject;
   fetchProjectCounts: Scalars['Int'];
   fetchProjects: Array<IProject>;
+  fetchQna: IQna;
+  fetchQnas: Array<IQna>;
   fetchRegions: Array<IRegion>;
+  fetchReview: IReview;
+  fetchReviews: Array<IReview>;
   fetchTask: ITask;
   fetchTasks: Array<ITask>;
   fetchTendencys: Array<ITendency>;
@@ -422,6 +497,26 @@ export type IQueryFetchProjectsArgs = {
 };
 
 
+export type IQueryFetchQnaArgs = {
+  qnaId: Scalars['String'];
+};
+
+
+export type IQueryFetchQnasArgs = {
+  projectId: Scalars['String'];
+};
+
+
+export type IQueryFetchReviewArgs = {
+  reviewId: Scalars['String'];
+};
+
+
+export type IQueryFetchReviewsArgs = {
+  projectId: Scalars['String'];
+};
+
+
 export type IQueryFetchTaskArgs = {
   taskId: Scalars['String'];
 };
@@ -450,6 +545,18 @@ export type IRegion = {
   __typename?: 'Region';
   id: Scalars['String'];
   name: Scalars['String'];
+};
+
+export type IReview = {
+  __typename?: 'Review';
+  content: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  deletedAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  project: IProject;
+  title: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+  user: IUser;
 };
 
 export enum ITask_Type_Enum {
@@ -503,7 +610,7 @@ export type IUpdateUserOnboardInput = {
 
 export type IUser = {
   __typename?: 'User';
-  board?: Maybe<Array<IBoard>>;
+  boards?: Maybe<Array<IBoard>>;
   career?: Maybe<ICareer_Enum>;
   chatRoomMembers: Array<IChatRoomMember>;
   createdAt: Scalars['DateTime'];

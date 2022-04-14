@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const FETCH_PROJECT = gql`
   query fetchProject($projectId: String!) {
@@ -34,48 +34,52 @@ export const FETCH_PROJECT = gql`
       }
       projectMembers {
         id
-        user{
-        id
+        user {
+          id
           name
           imgUrl
-          position{
+          position {
             name
           }
         }
       }
-      board{
+      boards {
         id
         title
         content
         createdAt
       }
-      task{
+      tasks {
         id
         content
         limit
         taskType
         is_complete
-    }
+      }
     }
   }
 `;
 
 export const CREATE_BOARD = gql`
-  mutation createBoard($title: String!,$content: String!,$projectId: String!){
-    createBoard(title:$title,content:$content,projectId:$projectId){
+  mutation createBoard(
+    $title: String!
+    $content: String!
+    $projectId: String!
+  ) {
+    createBoard(title: $title, content: $content, projectId: $projectId) {
       id
     }
   }
-`
+`;
 
 export const END_PROJECT = gql`
-   mutation endProject($projectId:String!){
-    endProject(projectId:$projectId)
-   }
-`
+  mutation endProject($projectId: String!) {
+    endProject(projectId: $projectId)
+  }
+`;
 
 export const DELETE_PROJECT = gql`
-   mutation deleteProject($projectId:String!){
-    deleteProject(projectId:$projectId)
-   }
-`
+  mutation deleteProject($projectId: String!) {
+    deleteProject(projectId: $projectId)
+  }
+`;
