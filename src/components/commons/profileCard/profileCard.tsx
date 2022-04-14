@@ -99,7 +99,7 @@ export default function PropsProfileCard(props: IPropsProfileCard) {
     const bg: string[] = [];
     props.tendency?.forEach((el) => {
       const idx = dumpData.tendency.name.indexOf(el.name);
-
+ 
       bg.push(dumpData.tendency.color[idx]);
     });
 

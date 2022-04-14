@@ -15,7 +15,7 @@ import TeamMember from "./teamMenber/teamMember";
 
 interface IProsManage {
   onClickonAdd: ((e: MouseEvent<HTMLButtonElement>) => void) | undefined;
-  project?: string;
+  project?: string | string[] | undefined;
   data?:any;
   toDoTab:boolean;
   doneTab:boolean;

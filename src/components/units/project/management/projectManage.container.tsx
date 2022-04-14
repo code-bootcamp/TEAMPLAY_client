@@ -8,7 +8,7 @@ import {
 } from "../../../../commons/types/generated/types";
 import {
   CREATE_BOARD,
-  DELETE_PROJECT,
+  // DELETE_PROJECT,
   END_PROJECT,
   FETCH_PROJECT,
 } from "./projectManage.queries";
@@ -37,7 +37,7 @@ export default function ProjectManage(props: IPropsProjectManage) {
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [endProject] = useMutation(END_PROJECT);
-  const [deleteProject] = useMutation(DELETE_PROJECT);
+  // const [deleteProject] = useMutation(DELETE_PROJECT);
   const [deleteBoards] = useMutation(DELETE_BOARD);
   const [deleteTask] = useMutation(DELETE_TASK);
 
@@ -62,7 +62,7 @@ export default function ProjectManage(props: IPropsProjectManage) {
 
     if (title && content) {
       try {
-        await createBoard({
+        const result = await createBoard({
           variables: {
             title,
             content,
@@ -70,7 +70,7 @@ export default function ProjectManage(props: IPropsProjectManage) {
           },
           refetchQueries: [FETCH_PROJECT],
         });
-
+        console.log(result);
         setOnAdd(false);
         alert("게시글이 등록되었습니다.");
       } catch (error) {
@@ -98,7 +98,7 @@ export default function ProjectManage(props: IPropsProjectManage) {
     IQueryFetchProjectArgs
   >(FETCH_PROJECT, {
     variables: {
-      projectId: props.project || "",
+      projectId: String(props.project || ""),
     },
   });
   const [toDoTab, setToDoTab] = useState(true);
@@ -115,21 +115,27 @@ export default function ProjectManage(props: IPropsProjectManage) {
     setDoneTab(true);
   };
 
+  // const deleteResult = await deleteProject({
+  //   variables:{
+  //     projectId: props.project
+  //   }
+  // })
+
   const projectcomplete = async () => {
     try {
-      await endProject({
+      const result = await endProject({
         variables: {
           projectId: props.project,
         },
       });
-      await deleteProject({
-        variables: {
-          projectId: props.project,
-        },
-      });
-
-      alert("프로젝트를 성공적으로 마무리 했습니다!!");
-      router.push("/project/list");
+      console.log(result);
+      data &&
+        router.push({
+          pathname: "/project/done",
+          query: {
+            point: String(data?.fetchProject?.point),
+          },
+        });
     } catch (error) {
       console.log(error);
     }
@@ -142,15 +148,16 @@ export default function ProjectManage(props: IPropsProjectManage) {
 
   const onClickAllDeleteBoard = () => {
     if (!data) return;
-
+    console.log(data?.fetchProject?.board);
     try {
       data?.fetchProject?.board?.forEach(async (el: any) => {
-        await deleteBoards({
+        const result = await deleteBoards({
           variables: {
             boardId: el.id,
           },
           refetchQueries: [FETCH_PROJECT],
         });
+        console.log(result);
       });
       alert("모든 게시판이 삭제되었습니다.");
     } catch (error) {
@@ -160,20 +167,22 @@ export default function ProjectManage(props: IPropsProjectManage) {
 
   const onClickAllDeleteTask = () => {
     if (!data) return;
-
+    console.log(data?.fetchProject?.board);
     try {
       data?.fetchProject?.task?.forEach(async (el: any) => {
-        await deleteTask({
+        const result = await deleteTask({
           variables: {
             taskId: el.id,
           },
           refetchQueries: [FETCH_PROJECT],
         });
+        console.log(result);
       });
       alert("모든 투두 리스트가 삭제되었습니다.");
     } catch (error) {
       console.log(error);
     }
+    console.log("sadsa");
   };
 
   return (
