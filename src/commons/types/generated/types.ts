@@ -117,6 +117,7 @@ export type IMutation = {
   deleteProject: Scalars['Boolean'];
   deleteTask: Scalars['Boolean'];
   deleteUser: Scalars['Boolean'];
+  deleteUserHard: Scalars['Boolean'];
   endProject: Scalars['Boolean'];
   joinChatRoom: IChatRoomMember;
   login: IToken;
@@ -224,6 +225,11 @@ export type IMutationDeleteProjectArgs = {
 
 export type IMutationDeleteTaskArgs = {
   taskId: Scalars['String'];
+};
+
+
+export type IMutationDeleteUserHardArgs = {
+  email: Scalars['String'];
 };
 
 
@@ -389,6 +395,7 @@ export type IQuery = {
   fetchUsers: Array<IUser>;
   progressRatio: Scalars['Int'];
   searchProjects: Array<IProject>;
+  searchTags: Array<IProject>;
 };
 
 
@@ -443,6 +450,11 @@ export type IQueryProgressRatioArgs = {
 
 
 export type IQuerySearchProjectsArgs = {
+  search: Scalars['String'];
+};
+
+
+export type IQuerySearchTagsArgs = {
   search: Scalars['String'];
 };
 
@@ -503,7 +515,7 @@ export type IUpdateUserOnboardInput = {
 
 export type IUser = {
   __typename?: 'User';
-  board?: Maybe<Array<IBoard>>;
+  boards?: Maybe<Array<IBoard>>;
   career?: Maybe<ICareer_Enum>;
   chatRoomMembers: Array<IChatRoomMember>;
   createdAt: Scalars['DateTime'];

@@ -53,7 +53,7 @@ export default function FilterTendency(){
                     <S.WebTag>
                         <span>선택항목</span>
                         <S.TagBox>
-                            {tendency.map((name) => {
+                            {tendency.map((name : any) => {
                                 console.log(name);
                                 return (
                                 <S.Tag

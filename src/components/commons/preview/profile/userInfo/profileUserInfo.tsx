@@ -18,9 +18,9 @@ export default function ProfileUserInfo() {
             <span>경기도 하남</span>
           </S.Position>
           <S.Tag>
-            <CircleTag name="태그" size={15} color="#CCC" />
-            <CircleTag name="태그" size={15} color="#CCC" />
-            <CircleTag name="태그" size={15} color="#CCC" />
+            <CircleTag name="태그" size={15} bgColor="#CCC" margin={0}/>
+            <CircleTag name="태그" size={15} bgColor="#CCC" margin={0}/>
+            <CircleTag name="태그" size={15} bgColor="#CCC" margin={0}/>
           </S.Tag>
         </S.InfoBox>
       </S.WrapperHeader>

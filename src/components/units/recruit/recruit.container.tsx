@@ -3,9 +3,9 @@ import { createContext, useState } from "react";
 // import { IQuery } from "../../../commons/types/generated/types";
 import RecruitUI from "./recruit.presenter";
 // import { FETCH_TENDENCYS } from "./recruit.queries";
-import { IPropsRecruitContext } from "./recruit.types";
+// import { IPropsRecruitContext } from "./recruit.types";
 
-export const RecruitContext = createContext<IPropsRecruitContext>({})
+export const RecruitContext = createContext<any>({})
 
 export default function Recruit() {
     const [tendency, setTendency] = useState<string[]>([])
@@ -158,8 +158,6 @@ export default function Recruit() {
         isPosition,
         isInterest,
         isSearchBar,
-        // tendencyData,
-        // isSearchFilterBar,
         locate,
         tendencyLocate,
         regionLocate,

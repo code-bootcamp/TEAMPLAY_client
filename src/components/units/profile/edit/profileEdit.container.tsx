@@ -46,14 +46,6 @@ export default function ProfileEdit(){
             if(position.includes(name)) {
                 return
             } 
-            // if (position.length === 3) {
-            //     const temp = position;
-            //     temp.shift();
-            //     setPosition([...temp, name]);
-            //   } else {
-            //     setPosition((prev) => [...prev, name]);
-            // }
-            // return
         }
 
         if (interest.includes(name)) {
@@ -116,7 +108,6 @@ export default function ProfileEdit(){
     };
 
     const onClickDeletePositionTag = (name: string) => {
-        // const temp = position[name]
         setPosition(name);
     };
 
@@ -149,7 +140,6 @@ export default function ProfileEdit(){
         interest,
         technic,
         isAdd,
-        // isOk,
         isTendency,
         isPosition,
         isInterest,

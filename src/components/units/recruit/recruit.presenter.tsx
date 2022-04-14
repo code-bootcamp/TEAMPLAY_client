@@ -62,14 +62,14 @@ export default function RecruitUI() {
                             <S.TagArea>
                                 {tendency?.length ? (
                                     <>
-                                        {tendency.map((name) => {
+                                        {tendency.map((name : any) => {
                                             console.log(name);
                                             return (
                                             <S.Tag
                                             bgColor={
                                                 dump.tendency.name.indexOf(name) > 0
                                                 ? dump.tendency.color[dump.tendency.name.indexOf(name)]
-                                                : "#0D223A"
+                                                : "#3c424a"
                                             }
                                             key={uuidv4()}
                                             onClick={

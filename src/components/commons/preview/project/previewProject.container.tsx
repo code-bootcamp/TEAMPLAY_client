@@ -19,10 +19,10 @@ export default function PreviewProject(props: IPropsPreviewProject) {
     IQueryFetchProjectArgs
   >(FETCH_PROJECT, {
     variables: {
-      projectId: props.detailId,
+      projectId:String(props.detailId),
     },
   });
-  console.log(props.detailId)
+  
   const [joinChatRoom] = useMutation<
     Pick<IMutation, "joinChatRoom">,
     IMutationJoinChatRoomArgs

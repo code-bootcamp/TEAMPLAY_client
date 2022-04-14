@@ -15,21 +15,27 @@ export const FETCH_PROJECT = gql`
       isComplete
       isStart
       projectToPositions {
+        id
         position {
+          id
           name
         }
         number
       }
       platforms {
+        id
         name
       }
       location {
+        id
         name
       }
       leader {
+        id
         name
       }
       type {
+        id
         name
       }
       projectMembers {

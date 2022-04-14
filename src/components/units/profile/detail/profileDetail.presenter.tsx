@@ -6,7 +6,7 @@ import AboutMe from "./AboutMe";
 import * as S from  "./profileDetail.styles";
 
 export interface IPropsProfileDetail {
-    isVisible: string
+    isVisible: string | null
     onClickProfileDetail: MouseEventHandler<HTMLSpanElement> | undefined;
 }
 

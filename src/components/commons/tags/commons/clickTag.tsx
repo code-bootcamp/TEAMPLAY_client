@@ -3,7 +3,7 @@ import { MouseEvent } from "react";
 
 interface IPropsDiv {
   marginBottom: number;
-  isClick: boolean | string | undefined;
+  isClick: boolean | string | undefined | string[];
 }
 
 const Div = styled.div`

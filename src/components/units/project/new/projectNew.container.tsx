@@ -62,39 +62,44 @@ export default function Project() {
       const uiNumber = Number(
         document?.querySelector<HTMLInputElement>("[class='0position0']")?.value
       );
-      const uiId = document?.querySelector<HTMLInputElement>("[class='0position0']")?.id
+      const uiId = document?.querySelector<HTMLInputElement>(
+        "[class='0position0']"
+      )?.id;
 
       const uxNumber = Number(
         document?.querySelector<HTMLInputElement>("[class='1position1']")?.value
       );
-      const uxId = document?.querySelector<HTMLInputElement>("[class='1position1']")?.id
-    
+      const uxId = document?.querySelector<HTMLInputElement>(
+        "[class='1position1']"
+      )?.id;
 
       const plannerNumber = Number(
         document?.querySelector<HTMLInputElement>("[class='2position2']")?.value
       );
-      const plannerId = document?.querySelector<HTMLInputElement>("[class='2position2']")?.id
-      
+      const plannerId = document?.querySelector<HTMLInputElement>(
+        "[class='2position2']"
+      )?.id;
 
       const backendNumber = Number(
         document?.querySelector<HTMLInputElement>("[class='3position3']")?.value
       );
-      const backendId = document?.querySelector<HTMLInputElement>("[class='3position3']")?.id
-      
-
+      const backendId = document?.querySelector<HTMLInputElement>(
+        "[class='3position3']"
+      )?.id;
 
       const fullstackNumber = Number(
         document?.querySelector<HTMLInputElement>("[class='4position4']")?.value
       );
-      const fullstackId = document?.querySelector<HTMLInputElement>("[class='4position4']")?.id
-     
+      const fullstackId = document?.querySelector<HTMLInputElement>(
+        "[class='4position4']"
+      )?.id;
 
       const frontNumber = Number(
         document?.querySelector<HTMLInputElement>("[class='5position5']")?.value
       );
-      const frontId = document?.querySelector<HTMLInputElement>("[class='5position5']")?.id
-      
-
+      const frontId = document?.querySelector<HTMLInputElement>(
+        "[class='5position5']"
+      )?.id;
 
       if (name === "") {
         setValidName(true);
@@ -132,23 +137,31 @@ export default function Project() {
         setValidLocationId(false);
       }
 
-      if (uiNumber + uxNumber + plannerNumber + backendNumber + fullstackNumber + frontNumber === 0) {
+      if (
+        uiNumber +
+          uxNumber +
+          plannerNumber +
+          backendNumber +
+          fullstackNumber +
+          frontNumber ===
+        0
+      ) {
         setValidNumbers(true);
       } else {
         setValidNumbers(false);
       }
-     const positionObject =  [
-        {id:uiId,number:Number(uiNumber)},
-        {id:uxId,number:Number(uxNumber)},
-        {id:plannerId,number:Number(plannerNumber)},
-        {id:fullstackId,number:Number(fullstackNumber)},
-        {id:backendId,number:Number(backendNumber)},
-        {id:frontId,number:Number(frontNumber)}
-      ].filter(el => {
-      return el.number !== 0
-      })
+      const positionObject = [
+        { id: uiId, number: Number(uiNumber) },
+        { id: uxId, number: Number(uxNumber) },
+        { id: plannerId, number: Number(plannerNumber) },
+        { id: fullstackId, number: Number(fullstackNumber) },
+        { id: backendId, number: Number(backendNumber) },
+        { id: frontId, number: Number(frontNumber) },
+      ].filter((el) => {
+        return el.number !== 0;
+      });
 
-      console.log(positionObject)
+      console.log(positionObject);
 
       if (
         name !== "" &&
@@ -157,41 +170,49 @@ export default function Project() {
         method !== "" &&
         typeId !== "" &&
         locationId !== "" &&
-        uiNumber + uxNumber + plannerNumber + backendNumber + fullstackNumber + frontNumber > 0
+        uiNumber +
+          uxNumber +
+          plannerNumber +
+          backendNumber +
+          fullstackNumber +
+          frontNumber >
+          0
       ) {
-            try {
-              const result = await createProject({
-                variables: {
-                  createProjectInput: {
-                    name,
-                    teamname,
-                    intro,
-                    method,
-                    recruitDate,
-                    imgUrl,
-                    description,
-                    numbers:positionObject.map(el => {return el.number}),
-                    typeId,
-                    skill: "skill",
-                    platformIds: ["5578b56c-be95-4fc5-92c1-2c2f7cddf7ec"],
-                    locationId,
-                    positionIds: positionObject.map(el => {return el.id}),
-                  },
-                },
-              });
-              console.log(result)
-              alert("프로젝트 추가 완료");
-              router.push("/project/list");
-            } catch (error) {
-              console.log(error);
-            }
+        try {
+          const result = await createProject({
+            variables: {
+              createProjectInput: {
+                name,
+                teamname,
+                intro,
+                method,
+                recruitDate,
+                imgUrl,
+                description,
+                numbers: positionObject.map((el) => {
+                  return el.number;
+                }),
+                typeId,
+                skill: "skill",
+                platformIds: ["5578b56c-be95-4fc5-92c1-2c2f7cddf7ec"],
+                locationId,
+                positionIds: positionObject.map((el) => {
+                  return el.id;
+                }),
+              },
+            },
+          });
+          console.log(result);
+          alert("프로젝트 추가 완료");
+          router.push("/project/list");
+        } catch (error) {
+          console.log(error);
+        }
       } else {
         window && window.scrollTo(0, 0);
       }
     }
   };
-
- 
 
   const positonMinus = () => {
     if (positionCount === 1) return;

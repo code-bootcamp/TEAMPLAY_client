@@ -9,11 +9,9 @@ export const Wrapper = styled.div`
   /* overflow: hidden;
   position: relative;
   z-index: 1; */
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   @media ${breakPoints.web}{
     max-width: 1200px;
     margin: 0 auto;
@@ -23,20 +21,16 @@ export const HeaderLine = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 32px;
-
   img {
     height: 16px;
     :hover {
       cursor: pointer;
     }
   }
-
   span {
     font-size: 20px;
   }
-
   div{}
-
   @media ${breakPoints.web}{
     img{
       display: none;
@@ -47,7 +41,6 @@ export const ProgressTitle = styled.div`
   width: 100%;
   margin: 0 auto;
   /* padding: 0px 20px 24px; */
-
   span{
     font-size: 18px;
   }
@@ -78,7 +71,6 @@ export const WebLine = styled.div`
 `
 export const ProgressBox = styled.div`
   padding: 16px 12px;
-
   background: #FFFFFF;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
@@ -101,12 +93,10 @@ export const TagBox = styled.div`
 export const ProjectTitleDate = styled.div`
   display: flex;
   flex-direction: column;
-
   div{
     font-size: 16px;
     padding-bottom: 4px;
   }
-
   span{
     font-size: 8px;
     color: #999999
@@ -115,7 +105,6 @@ export const ProjectTitleDate = styled.div`
 export const HeaderRigthBox = styled.div`
   width: 35%;
   /* height: 20vw; */
-
   img{
     width: 100%;
     height: 100%;

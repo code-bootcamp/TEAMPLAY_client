@@ -107,7 +107,7 @@ export default function PreviewProjectUI(props: IPropsPreviewProjectUI) {
               props.data?.fetchProject?.projectToPositions.map((el) => {
                 return (
                   <S.ProfileBox key={uuidv4()}>
-                    <div>
+                    <div className={el.position.id}>
                       <img src="/img/preview/user1.png" />
                       <div>{el.position.name}</div>
                     </div>

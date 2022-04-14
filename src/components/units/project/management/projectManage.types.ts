@@ -1,7 +1,7 @@
 import { SetStateAction,Dispatch } from 'react';
 
 export interface IPropsProjectManage {
-    project?: string;
+    project?: string | string[] | undefined;
   }
   
   export interface IProjectManagement{

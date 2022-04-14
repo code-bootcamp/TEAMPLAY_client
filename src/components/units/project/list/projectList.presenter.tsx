@@ -19,7 +19,7 @@ interface IPropsProjectListUI {
   fetchProjectCount?: number;
 }
 
-export default function ProjectListUI(props: IPropsProjectListUI) {  
+export default function ProjectListUI(props: IPropsProjectListUI) {
   return (
     <>
       <Wrapper paddingTop={0}>
@@ -33,9 +33,8 @@ export default function ProjectListUI(props: IPropsProjectListUI) {
         >
           <S.ProjectListBox>
             {props?.data &&
-              props?.data.fetchProjects.map((el:any) => {
-                return (
-                el.isStart ? null :
+              props?.data.fetchProjects.map((el: any) => {
+                return el.isStart ? null : (
                   <div key={uuidv4()}>
                     <ProjectCard
                       id={el.id}

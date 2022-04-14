@@ -83,7 +83,7 @@ interface IPropsProfileCard {
   img: string;
   name: string | undefined
   position: string;
-  tendency:IPropsTendency[] | undefined
+  tendency?:IPropsTendency[] | string[] | string | undefined
   fontSize: number;
 }
 
@@ -98,8 +98,8 @@ export default function PropsProfileCard(props: IPropsProfileCard) {
         <Name>{props.name}</Name>
         <Position>{props.position}</Position>
         <Tags>
-          {props.tendency &&
-            props.tendency.map((el, i) => (
+          {props.tendency === [] &&
+            props.tendency.map((el:any, i:number) => (
               <CircleTag
                 name={el.name}
                 size={0.124}

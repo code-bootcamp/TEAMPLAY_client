@@ -2,7 +2,7 @@ export interface IPropsRecruitContext{
     tendency?: string[];
     region?: string
     position?: string;
-    interest?: string;
+    interest?: string ;
     locate?: number
     tendencyLocate?: number
     regionLocate?: number

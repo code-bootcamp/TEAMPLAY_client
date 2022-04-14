@@ -21,9 +21,8 @@ export interface IPropsProfileEditContext{
     onClickEditInterest?: () => void
     onClickEditTechnic?: () => void
     onClickBasicInfoEdit?: () => void
-    // onClickEditTag?: () => void
     onClickDeleteTendencyTag?: (name: string) => () => void
-    onClickDeletePositionTag?: () => void
+    onClickDeletePositionTag?: (name : string) => void
     onClickDeleteInterestTag?: (name: string) => () => void
     onClickDeleteTechnicTag?: (name: string) => () => void
     onClickEditButton?: () => void
@@ -32,7 +31,6 @@ export interface IPropsProfileEditContext{
 
 export interface IPropsTag {
     bgColor: string;
-    // color: string[];
 }
 
 export interface ISidebarWrapper {
