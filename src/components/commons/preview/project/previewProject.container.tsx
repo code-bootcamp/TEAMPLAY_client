@@ -36,15 +36,13 @@ export default function PreviewProject(props: IPropsPreviewProject) {
           projectId: String(props.detailId),
         },
       });
-
       router.push("/chatting");
-
       document.querySelector("#__next")?.classList.remove("projectdetalon");
     } catch (error) {
       if (error instanceof Error) console.log(error.message);
     }
   };
-
+ 
   return (
     <PreviewProjectUI
       data={data}
