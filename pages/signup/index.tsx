@@ -1,3 +1,5 @@
+import SignUp from "../../src/components/units/signup/signup.container";
+
 export default function SignUpPage() {
-  return <div></div>;
+  return <SignUp isEdit={false} />;
 }

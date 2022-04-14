@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+제발 좀 읽어주세요
 
-## Getting Started
+헤이고 (HeyGo)
+CreatPlan
 
-First, run the development server:
+Intro
+팀명 : 원두없는 원두팀
+프로젝트 명 : 헤이고
+프로젝트 형태 : 수강생 프로젝트
+프로젝트 소개
+해외 여행을 할 때 단기간으로 동행을 구해야 할 때가 종종 있다.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+이 프로젝트에서는 사용자가 각 여행지, 나라에서 필요한 기간, 위치를 기반으로 동행을 구하는 글을 등록하고 사용자들에게 게시글들을 여행지 전체, 또는 원하는 여행지 안에서, 분류하여 보여준다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+사용자는 자신이 함께하길 원하는 동행 글을 스크랩할 수 있다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+또한 게시글에 댓글을 등록하여 해당 게시글의 글쓴이와 대화를 통해 동행여부와 일정, 장소 등에 대해 이야기 나눌 수 있다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+사용스택
+프론트엔드
+Typescript
+Javascript
+React Native
+Emotion Native
+Apollo Client
+React Navigation
+GraphQL
+Firebase
+백엔드
+GraphQL
+Firebase
+플로우 차트
+다이어그램
+CreatPlan
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Container-Presenter 패턴을 사용한 폴더 구조
+CreatPlan
 
-## Learn More
+주요 페이지
+Splash Screen Page
+맨처음 나오는 페이지
 
-To learn more about Next.js, take a look at the following resources:
+CreatPlan
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Login Page
+Firebase 를 이용한 구글 소셜 로그인 API 적용
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+CreatPlan

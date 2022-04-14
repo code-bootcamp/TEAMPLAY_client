@@ -1,0 +1,104 @@
+{
+    "userList" : [
+        {
+            "img": "/img/user01.png",
+            "name": "지호",
+            "position": "UXUI 디자이너",
+            "tendency": [
+                {"name":"꼼꼼한","bgColor":"#24BE74"},
+                {"name":"냉정한","bgColor":"#68A4FF"},
+                {"name":"친절한","bgColor":"#FBCFCF"}
+            ]
+        },
+        {
+            "img": "/img/user02.png",
+            "name": "제이든",
+            "position": "개발자",
+            "tendency": [
+                {"name":"주도적인","bgColor":"#24BE74"},
+                {"name":"논리적인","bgColor":"#00623B"},
+                {"name":"톡톡튀는","bgColor":"#006EE8"}
+            ]
+        },
+        {
+            "img": "/img/user01.png",
+            "name": "지호",
+            "position": "UXUI 디자이너",
+            "tendency": [
+                {"name":"꼼꼼한","bgColor":"#24BE74"},
+                {"name":"냉정한","bgColor":"#68A4FF"},
+                {"name":"친절한","bgColor":"#FBCFCF"}
+            ]
+        },
+        {
+            "img": "/img/user02.png",
+            "name": "제이든",
+            "position": "개발자",
+            "tendency": [
+                {"name":"주도적인","bgColor":"#AAFDF8"},
+                {"name":"논리적인","bgColor":"#00623B"},
+                {"name":"톡톡튀는","bgColor":"#006EE8"}
+            ]
+        },
+        {
+            "img": "/img/user01.png",
+            "name": "지호",
+            "position": "UXUI 디자이너",
+            "tendency": [
+                {"name":"꼼꼼한","bgColor":"#24BE74"},
+                {"name":"냉정한","bgColor":"#68A4FF"},
+                {"name":"친절한","bgColor":"#FBCFCF"}
+            ]
+        },
+        {
+            "img": "/img/user02.png",
+            "name": "제이든",
+            "position": "개발자",
+            "tendency": [
+                {"name":"주도적인","bgColor":"#AAFDF8"},
+                {"name":"논리적인","bgColor":"#00623B"},
+                {"name":"톡톡튀는","bgColor":"#006EE8"}
+            ]
+        },
+        {
+            "img": "/img/user01.png",
+            "name": "지호",
+            "position": "UXUI 디자이너",
+            "tendency": [
+                {"name":"꼼꼼한","bgColor":"#24BE74"},
+                {"name":"냉정한","bgColor":"#68A4FF"},
+                {"name":"친절한","bgColor":"#FBCFCF"}
+            ]
+        },
+        {
+            "img": "/img/user02.png",
+            "name": "제이든",
+            "position": "개발자",
+            "tendency": [
+                {"name":"주도적인","bgColor":"#AAFDF8"},
+                {"name":"논리적인","bgColor":"#00623B"},
+                {"name":"톡톡튀는","bgColor":"#006EE8"}
+            ]
+        },
+        {
+            "img": "/img/user01.png",
+            "name": "지호",
+            "position": "UXUI 디자이너",
+            "tendency": [
+                {"name":"꼼꼼한","bgColor":"#24BE74"},
+                {"name":"냉정한","bgColor":"#68A4FF"},
+                {"name":"친절한","bgColor":"#FBCFCF"}
+            ]
+        },
+        {
+            "img": "/img/user02.png",
+            "name": "제이든",
+            "position": "개발자",
+            "tendency": [
+                {"name":"주도적인","bgColor":"#AAFDF8"},
+                {"name":"논리적인","bgColor":"#00623B"},
+                {"name":"톡톡튀는","bgColor":"#006EE8"}
+            ]
+        }
+    ]
+}

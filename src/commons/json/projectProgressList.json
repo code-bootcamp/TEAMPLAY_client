@@ -1,0 +1,32 @@
+{
+  "projectProgressList": {
+    "progress": [
+      {
+        "title": "자율주행자동차 어플",
+        "redruitDate": "D-4",
+        "types": "모빌리티",
+        "dueDate": "2022년 3월 22일까지",
+        "leader": "제이든(ios 개발자)",
+        "member": [
+          "엘레나(UXUI디자이너)",
+          "지호(BX디자이너)",
+          "토마스(서비스기획자)"
+        ]
+      }
+    ],
+    "done": [
+      {
+        "title": "자율주행자동차 어플",
+        "redruitDate": "D-4",
+        "types": "모빌리티",
+        "dueDate": "2022년 3월 22일까지",
+        "leader": "제이든(ios 개발자)",
+        "member": [
+          "엘레나(UXUI디자이너)",
+          "지호(BX디자이너)",
+          "토마스(서비스기획자)"
+        ]
+      }
+    ]
+  }
+}
