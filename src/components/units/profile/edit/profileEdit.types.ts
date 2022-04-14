@@ -23,7 +23,7 @@ export interface IPropsProfileEditContext{
     onClickBasicInfoEdit?: () => void
     // onClickEditTag?: () => void
     onClickDeleteTendencyTag?: (name: string) => () => void
-    onClickDeletePositionTag?: () => void
+    onClickDeletePositionTag?: (name: string) => void
     onClickDeleteInterestTag?: (name: string) => () => void
     onClickDeleteTechnicTag?: (name: string) => () => void
     onClickEditButton?: () => void
